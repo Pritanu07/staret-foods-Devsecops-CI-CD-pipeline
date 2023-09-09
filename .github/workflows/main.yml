@@ -29,7 +29,7 @@ run_unit_tests:
   steps:
 - name: Check out code
   uses: actions/checkout@v2
-- name: Set up Node.js
+- name: Setup Node.js
   uses: actions/setup-node@v2
   with:
   node-version: '14'
@@ -57,7 +57,7 @@ ecr_creation:
     terraform_version: 1.0.0
 - name: Check if ECR repository already exists
   id: check_ecr
-#working-directory: ecr
+working-directory: ecr
   run: |
     terraform init
     echo "Checking if ECR repository already exists..."
@@ -70,7 +70,7 @@ ecr_creation:
     fi
 - name: Deploy ECR using Terraform
   if: steps.check_ecr.outputs.exists == 'false'
-#working-directory: ecr
+working-directory: ecr
   run: |
     terraform init
     terraform apply -auto-approve
@@ -95,7 +95,7 @@ docker_build_push:
 - name: Build and Push Docker image to Amazon ECR
   env:
     ECR_REGISTRY: 255945442255.dkr.ecr.ap-southeast-1.amazonaws.com
-    ECR_REPOSITORY: priya-repos
+    ECR_REPOSITORY: priya-repo
     IMAGE_TAG: latest
   run: |
     docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
@@ -119,7 +119,7 @@ terraform_force_deployment:
   with:
     terraform_version: 1.0.0
 - name: Taint ECS service for force new deployment
-#working-directory: ecs
+working-directory: ecs
   run: |
     terraform init
     terraform taint aws_ecs_service.priya-ecs2-service
