@@ -31,7 +31,7 @@ resource "aws_ecs_task_definition" "priya-ecs2-task" {
   memory = "1024"
 }
 
-resource "aws_ecs_cluster" "my_ecs_cluster" {
+resource "aws_ecs_cluster" "my_ecs2_cluster" {
   name = "${local.application_name}-cluster"
 }
 
