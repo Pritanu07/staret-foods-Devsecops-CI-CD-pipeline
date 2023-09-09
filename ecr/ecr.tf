@@ -7,6 +7,6 @@ locals {
 }
 
 # Create Amazon ECR repository
-resource "aws_ecr_repository" "priya-repo" {
+resource "aws_ecr_repository" "priya-repos" {
   name = local.application_name
 }
