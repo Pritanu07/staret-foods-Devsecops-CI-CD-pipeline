@@ -63,7 +63,7 @@ jobs:
       run: |
         terraform init
         echo "Checking if ECR repository already exists..."
-        if terraform state show aws_ecr_repository.my_ecr_repo; then
+        if terraform state show aws_ecr_repository.priya-repo; then
           echo "ECR repository already exists."
           echo "::set-output name=exists::true"
         else
@@ -129,7 +129,7 @@ jobs:
         terraform_version: 1.0.0
 
     - name: Taint ECS service for force new deployment
-      #working-directory: ecs
+      working-directory: ecs
       run: |
         terraform init
         terraform taint aws_ecs_service.priya-ecs2-service
