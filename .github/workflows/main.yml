@@ -59,7 +59,7 @@ jobs:
 
     - name: Check if ECR repository already exists
       id: check_ecr
-      #working-directory: ecr
+      working-directory: ecr
       run: |
         terraform init
         echo "Checking if ECR repository already exists..."
@@ -73,7 +73,7 @@ jobs:
 
     - name: Deploy ECR using Terraform
       if: steps.check_ecr.outputs.exists == 'false'
-      #working-directory: ecr
+      working-directory: ecr
       run: |
         terraform init
         terraform apply -auto-approve
