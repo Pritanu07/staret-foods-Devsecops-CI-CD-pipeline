@@ -21,10 +21,10 @@ jobs:
       run:  npm ci
     - name : create build directory 
       run :  npm run build
-   # - name : Vulnerability check with npm audit
+    - name : Vulnerability check with npm audit
       run: npm install
-    #- name: Run npm audit
-   #   run: npm audit
+    - name: Run npm audit
+      run: npm audit
 
   run_unit_tests:
     name: Run Unit Tests
