@@ -136,5 +136,5 @@ jobs:
       working-directory: ecs
       run: |
         terraform init
-        terraform taint aws_ecs_service.priya-ecs2-service -allow-missing
+         terraform taint -allow-missing aws_ecs_service.priya-ecs2-service
         terraform apply -auto-approve
