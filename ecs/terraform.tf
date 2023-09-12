@@ -3,12 +3,12 @@ provider "aws" {
 }
 
 locals {
-  application_name = "priya-devsecops6-application"
+  application_name = "priya-devsecops7-application"
 }
 
 resource "aws_ecs_task_definition" "priya-ecs2-task" {
   family                   = local.application_name
-  network_mode             = "projectvpc"
+  network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   execution_role_arn      = "arn:aws:iam::255945442255:role/ecsTaskExecutionRole"
 
