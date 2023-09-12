@@ -2,7 +2,8 @@
 FROM public.ecr.aws/bitnami/node:latest
 
 # Create app directory
-WORKDIR //c:/users/sanka/staret-foods-demo
+WORKDIR ///usr/src/app
+
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied

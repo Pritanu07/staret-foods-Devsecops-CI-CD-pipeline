@@ -19,8 +19,7 @@ jobs:
         node-version: '14'
     - name: clean Install dependencies
       run:  npm ci
-    - name : create build directory 
-      run :  npm run build
+    
     - name : Vulnerability check with npm audit
       run: npm install
     - name: Run npm audit
@@ -64,7 +63,7 @@ jobs:
 
     - name: Check if ECR repository already exists
       id: check_ecr
-      working-directory: c:/users/sanka/staret-foods-demo
+      working-directory: ecr
       run: |
         terraform init
         echo "Checking if ECR repository already exists..."
@@ -78,7 +77,7 @@ jobs:
 
     - name: Deploy ECR using Terraform
       if: steps.check_ecr.outputs.exists == 'false'
-      working-directory: c:/users/sanka/staret-foods-demo
+      working-directory: ecr
       run: |
         terraform init
         terraform apply -auto-approve
@@ -134,7 +133,7 @@ jobs:
         terraform_version: 1.0.0
 
     - name: Taint ECS service for force new deployment
-      working-directory: c:/users/sanka/staret-foods-demo
+      working-directory: ecs
       run: |
         terraform init
         terraform taint aws_ecs_service.priya-ecs2-service
