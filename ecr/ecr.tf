@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 locals {
-  application_name = "priya-devsecops-application"
+  application_name = "priya-devsecop-application"
 }
 
 # Create Amazon ECR repository
