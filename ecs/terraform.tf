@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 locals {
-  application_name = "priya-devsecops3-application"
+  application_name = "priya-devsecops4-application"
 }
 
 resource "aws_ecs_task_definition" "priya-ecs2-task" {
