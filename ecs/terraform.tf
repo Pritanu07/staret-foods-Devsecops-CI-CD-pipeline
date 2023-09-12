@@ -3,12 +3,12 @@ provider "aws" {
 }
 
 locals {
-  application_name = "priya-devsecops5-application"
+  application_name = "priya-devsecops6-application"
 }
 
 resource "aws_ecs_task_definition" "priya-ecs2-task" {
   family                   = local.application_name
-  network_mode             = "awsvpc"
+  network_mode             = "projectvpc"
   requires_compatibilities = ["FARGATE"]
   execution_role_arn      = "arn:aws:iam::255945442255:role/ecsTaskExecutionRole"
 
@@ -41,9 +41,9 @@ resource "aws_ecs_service" "priya-ecs2-service" {
   task_definition = aws_ecs_task_definition.priya-ecs2-task.arn
   launch_type     = "FARGATE"
   network_configuration {
-    subnets        = ["subnet-bea677f6", "subnet-29ed7170"]
+    subnets        = ["subnet-024976170a0e938db", "subnet-0d7974134dab46ffd"]
     assign_public_ip = true
-    security_groups = ["sg-b4db57fc"]
+    security_groups = ["sg-05d5d3d79cedd14cb2"]
   }
   scheduling_strategy = "REPLICA"
   desired_count       = 1
