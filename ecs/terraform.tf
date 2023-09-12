@@ -43,7 +43,7 @@ resource "aws_ecs_service" "priya-ecs2-service" {
   network_configuration {
     subnets        = ["subnet-024976170a0e938db", "subnet-0d7974134dab46ffd"]
     assign_public_ip = true
-    security_groups = ["sg-05d5d3d79cedd14cb2"]
+    security_groups = ["sg-05d53d79cedd14cb2"]
   }
   scheduling_strategy = "REPLICA"
   desired_count       = 1
