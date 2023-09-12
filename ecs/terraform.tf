@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 locals {
-  application_name = "priya-devsecops4-application"
+  application_name = "priya-devsecops5-application"
 }
 
 resource "aws_ecs_task_definition" "priya-ecs2-task" {
@@ -41,7 +41,7 @@ resource "aws_ecs_service" "priya-ecs2-service" {
   task_definition = aws_ecs_task_definition.priya-ecs2-task.arn
   launch_type     = "FARGATE"
   network_configuration {
-    subnets        = ["subnet-04056e91a09a5b4bf", "subnet-bea677f6", "subnet-29ed7170"]
+    subnets        = ["subnet-bea677f6", "subnet-29ed7170"]
     assign_public_ip = true
     security_groups = ["sg-b4db57fc"]
   }
