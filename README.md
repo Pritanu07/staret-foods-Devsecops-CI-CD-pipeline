@@ -1,4 +1,4 @@
-# Building and Deploying a Docker Application with Terraform and Amazon ECS
+# Creating ECR, Building docker image and push the image to ECS in Terraform Infrastructure
 
 This guide provides step-by-step instructions on building a Docker application, pushing it to Amazon Elastic Container Registry (ECR), deploying it to Amazon Elastic Container Service (ECS) using Terraform, and handling common errors.
 
