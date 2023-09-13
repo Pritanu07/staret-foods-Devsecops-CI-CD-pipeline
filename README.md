@@ -26,8 +26,8 @@ Before you begin, ensure you have:
    - Create a directory for your Docker project and navigate to it in your terminal:
 
      ```sh
-     mkdir terraform-ecr-ecs-fargate
-     cd terraform-ecr-ecs-fargate
+     mkdir staret-foods
+     cd staret-foods
      ```
 
    - Inside this directory, create a `Dockerfile` with the content in the [example Dockerfile](./Dockerfile).
@@ -35,7 +35,7 @@ Before you begin, ensure you have:
    - Build the Docker image locally:
 
      ```sh
-     docker build -t terraform-ecr-ecs-fargate .
+     docker build -t staret-foods .
      ```
 
 2. **Push Docker Image to Amazon ECR:**
@@ -49,13 +49,13 @@ Before you begin, ensure you have:
    - Tag the Docker image with your ECR repository URI:
 
      ```sh
-     docker tag terraform-ecr-ecs-fargate:latest 255945442255.dkr.ecr.ap-southeast-1.amazonaws.com/tf-sample-application:latest
+     docker tag staret-foods:latest 255945442255.dkr.ecr.ap-southeast-1.amazonaws.com/priya-repo:latest
      ```
 
    - Push the tagged Docker image to Amazon ECR:
 
      ```sh
-     docker push 255945442255.dkr.ecr.ap-southeast-1.amazonaws.com/tf-sample-application:latest
+     docker push 255945442255.dkr.ecr.ap-southeast-1.amazonaws.com/priya-repo:latest
      ```
 
 ## ECS Deployment Using Terraform
@@ -72,10 +72,10 @@ Before you begin, ensure you have:
      terraform init
      terraform apply
      ```
+https://ap-southeast-1.console.aws.amazon.com/ecr/repositories/private/255945442255/priya-devsecops8-application?region=ap-southeast-1
+https://ap-southeast-1.console.aws.amazon.com/ecs/v2/clusters/priya-devsecops8-application-cluster/services/priya-devsecops8-application-service/health?region=ap-southeast-1
+https://ap-southeast-1.console.aws.amazon.com/ecs/v2/clusters/priya-devsecops8-application-cluster/tasks/8db87130d4e446c4923b82dc156d0952/configuration?region=ap-southeast-1&selectedContainer=priya-devsecops8-application
 
-![image](https://github.com/del-skillsunion/terraform-ecr-ecs-fargate/assets/106639884/e67db44e-56b5-4643-9ab3-e6a17a0dee6f)
-
-![image](https://github.com/del-skillsunion/terraform-ecr-ecs-fargate/assets/106639884/0ebf2344-d98c-4e24-aa8d-26d818afb069)
 
 ## Resource Destruction
 
@@ -94,7 +94,7 @@ Before you begin, ensure you have:
    - If you encounter an error when trying to delete an ECR image with a specific tag, such as `latest`, you can use the following AWS CLI command to forcefully delete it:
 
      ```sh
-     aws ecr batch-delete-image --repository-name tf-sample-application --image-ids imageTag=latest
+     aws ecr batch-delete-image --repository-name priya-repo --image-ids imageTag=latest
      ```
 
 ## Conclusion
