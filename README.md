@@ -6,13 +6,8 @@ Cloud infrastructure dependencies:
 
 AWS ECS with Far gate is a serverless computing platform that makes running containerized services on AWS easier than ever before. With Far gate, a user simply defines the compute resources, such as CPU and memory, that a service will need to run, and Far gate will manage where to run the container behind the scenes. There is no point where setting up an EC2 instance is required. Terraform is an infrastructure-as-code tool created by Hashicorp to make handling infrastructure more straightforward and manageable.
 
-                         ECR-ECS- CI/CD pipeline workflow diagram
 
-                         ![image](https://github.com/Pritanu07/staret-foods-Devsecops-CI-CD-pipeline/assets/127757033/e48b86ac-f5dc-46c9-af57-4f6b77c668cc)
+<img width="454" alt="image" src="https://github.com/Pritanu07/staret-foods-Devsecops-CI-CD-pipeline/assets/127757033/0d0a3e90-de68-4398-9492-ad1af8ac87a8">
 
-
-                 
-
-
-
-                           
+   
+                
